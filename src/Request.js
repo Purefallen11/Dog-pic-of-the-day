@@ -22,6 +22,7 @@ const Request = () => {
 		<div className="div-container">
 			<button onClick={() => setBreed('husky')}>Husky</button>
 			<button onClick={() => setBreed('labrador')}>Labrador</button>
+			<button onClick={() => setBreed('pyrenees')}>Pyrenees</button>
 			<div className="card-maker">
 				{pet.map(url => <CardMaker key={url} imgUrl={url} />)}
 			</div>
