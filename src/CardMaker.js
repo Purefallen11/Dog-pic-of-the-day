@@ -1,12 +1,15 @@
 import React from 'react'
+import './cardmaker.css'
 
-const CardMaker = ({pokes}) => {
+const CardMaker = props => {
 	return (
 		<div className="container">
 			<div className="card-body">
-				<p>{pokes.name}</p>
-				<img src={pokes.url} alt="pokemon sprite" />
-				<p>type</p>
+				<img src={props.imgUrl} alt="cute dog" />
+				
+				
+			
+				
 			</div>
 		</div>
 	)

@@ -1,22 +1,28 @@
 import React, { useEffect, useState } from 'react'
 import CardMaker from './CardMaker'
 import axios from 'axios'
+import './request.css'
 
 
 const Request = () => {
-	const [pokes, setPokes] = useState([])
+	const [pet, setPet] = useState([])
 	useEffect(() => {
-		axios.get("https://pokeapi.co/api/v2/pokemon/")
+		axios.get('https://dog.ceo/api/breed/hound/images/random/1')
 			.then(res => {
 				console.log(res)
-				setPokes(res.data.results)
+				setPet(res.data.message)
+				
 			})
 			.catch(err => {
 			console.log("something went wrong", err)
 		})
 	},[])
 	return (
-		<CardMaker pokes={pokes}/>
+		<div className="div-container">
+			<div className="card-maker">
+				{pet.map(url => <CardMaker key={url} imgUrl={url} />)}
+			</div>
+	</div>
 	)
 }
 
