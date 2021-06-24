@@ -6,8 +6,9 @@ import './request.css'
 
 const Request = () => {
 	const [pet, setPet] = useState([])
+	const [breed,setBreed] = useState('mix')
 	useEffect(() => {
-		axios.get('https://dog.ceo/api/breed/hound/images/random/1')
+		axios.get(`https://dog.ceo/api/breed/${breed}/images/random/1`)
 			.then(res => {
 				console.log(res)
 				setPet(res.data.message)
@@ -16,9 +17,11 @@ const Request = () => {
 			.catch(err => {
 			console.log("something went wrong", err)
 		})
-	},[])
+	},[breed])
 	return (
 		<div className="div-container">
+			<button onClick={() => setBreed('husky')}>Husky</button>
+			<button onClick={() => setBreed('labrador')}>Labrador</button>
 			<div className="card-maker">
 				{pet.map(url => <CardMaker key={url} imgUrl={url} />)}
 			</div>
