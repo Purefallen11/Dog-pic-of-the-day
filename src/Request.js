@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import CardMaker from './CardMaker'
 import axios from 'axios'
 import './request.css'
+import {Button, Container, Row} from 'reactstrap'
 
 
 const Request = () => {
@@ -19,14 +20,19 @@ const Request = () => {
 		})
 	},[breed])
 	return (
-		<div className="div-container">
-			<button onClick={() => setBreed('husky')}>Husky</button>
-			<button onClick={() => setBreed('labrador')}>Labrador</button>
-			<button onClick={() => setBreed('pyrenees')}>Pyrenees</button>
-			<div className="card-maker">
-				{pet.map(url => <CardMaker key={url} imgUrl={url} />)}
-			</div>
-	</div>
+		<Container>
+				<Button color="primary" onClick={() => setBreed('husky')}>Husky</Button>
+				<Button color="warning" onClick={() => setBreed('labrador')}>Labrador</Button>
+				<Button color="success" onClick={() => setBreed('pyrenees')}>Pyrenees</Button>
+			<Row col-sm-6>
+				<div>
+					
+					<div className="card-maker">
+						{pet.map(url => <CardMaker key={url} imgUrl={url} />)}
+					</div>
+				</div>
+			</Row>
+	</Container>
 	)
 }
 
